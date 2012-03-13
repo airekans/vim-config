@@ -1,0 +1,7 @@
+" vim: set filetype=vim :
+" key bindings
+nmap <silent> <S-F1> :TlistToggle<CR>
+
+
+let Tlist_Exit_OnlyWindow = 1          "if taglist window is the last window, exit vim
+let Tlist_Use_Right_Window = 0         "show taglist on left

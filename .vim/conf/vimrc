@@ -1,0 +1,54 @@
+" vim: set filetype=vim :
+colorscheme desert
+
+set number
+set hls
+set ls=2
+
+set cindent
+set softtabstop=4
+set shiftwidth=4
+
+set expandtab
+set ignorecase		" ignore case when searching
+set smartcase		" ignore 'ignorecase' option when using upper case 
+
+set wildchar=<TAB>      " Character to start command line completion
+set wildmenu            " Enhanced command line completion
+set wildmode=list,longest  " Try out a different form of completion
+
+set statusline=%F%m%r%h%w\ [FORMAT=%{&ff}]\ [TYPE=%Y]\ [ASCII=\%03.3b]\ [COL=%04v][%p%%]\ [LEN=%L]
+
+syntax enable
+
+set tags+=./tags
+
+filetype plugin indent on
+
+" auto commands
+autocmd FileType python compiler pylint
+
+" General key bindings
+nmap <silent> <S-F2> :ts <C-R>=expand("<cword>")<CR><CR>
+nmap <silent> <S-F3> :pta <C-R>=expand("<cword>")<CR><CR>
+nmap <silent> <S-F4> :pclose<CR>
+
+" Edit a file in the same directory as the current buffer.
+" This leaves the prompt open, allowing Tab expansion or manual completion.
+map <leader>e :e <C-R>=expand("%:p:h") . "/" <CR>
+
+" Enter directory listing for the directory of the current buffer
+map <leader>. :e %:p:h<CR>
+
+" Create a new window with directory listing of current buffer
+map <leader>wn :new %:p:h<CR>
+
+" Change global directory to the current directory of the current buffer
+map <leader>cd :cd %:p:h<CR>
+
+"""" helper function
+func Eatchar(pat)
+    let c = nr2char(getchar(0))
+    return (c =~ a:pat) ? '' : c
+endfunc
+
