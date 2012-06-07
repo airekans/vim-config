@@ -12,6 +12,7 @@ set shiftwidth=4
 set expandtab
 set ignorecase		" ignore case when searching
 set smartcase		" ignore 'ignorecase' option when using upper case 
+set incsearch           " incremental search
 
 set wildchar=<TAB>      " Character to start command line completion
 set wildmenu            " Enhanced command line completion
